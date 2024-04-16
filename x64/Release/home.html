@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Welcome!</h1>
+    <p>Click below to view the video:</p>
+
+    <!-- Video Link -->
+    <a href="#" onclick="playVideo()">Play Video</a>
+
+    <!-- Video Player -->
+    <video id="videoPlayer" controls style="display: none;">
+        <source id="videoSource" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <script>
+        function playVideo() {
+            var videoPlayer = document.getElementById('videoPlayer');
+            var videoSource = document.getElementById('videoSource');
+            
+            // Update video source if not already set
+            if (!videoSource.src) {
+                videoSource.src = "http://localhost:8080/sample.mp4"; // Update with your video URL
+                videoPlayer.load(); // Load new source
+            }
+            
+            // Show and play video
+            videoPlayer.style.display = 'block';
+            videoPlayer.play();
+        }
+    </script>
+</body>
+</html>
+
+
